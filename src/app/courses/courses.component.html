@@ -1,6 +1,6 @@
-<p>courses works!</p> 
+<h1>Webbutveckling Ramschema</h1>
 
-<div>
+<div id="form">
    <label for="serach">Sök kurser</label>
    <input type="text" id="serach" [(ngModel)]="searchCourse" (input)="courseSearch()">
 </div>
@@ -9,8 +9,8 @@
    <thead id="head">
        <tr>
            <th (click)="sortByCode()">Kurskod <img [src]="sortIcon" alt="Sorting icon"></th>
-           <th (click)="sortByName()">Kursnamn</th>
-           <th (click)="sortByProgress()">Progression</th>
+           <th (click)="sortByName()">Kursnamn <img [src]="sortIcon" alt="Sorting icon"></th>
+           <th (click)="sortByProgress()">Progression <img [src]="sortIcon" alt="Sorting icon"></th>
            <th>Kursplan</th>
        </tr>
    </thead>
