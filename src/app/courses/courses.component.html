@@ -1,5 +1,9 @@
 <p>courses works!</p> 
 
+<div>
+   <label for="serach">Sök kurser</label>
+   <input type="text" id="serach" [(ngModel)]="searchCourse" (input)="courseSearch()">
+</div>
 
 <table>
    <thead id="head">
@@ -11,7 +15,7 @@
        </tr>
    </thead>
    <tbody id="data">
-      <tr *ngFor="let course of courses">
+      <tr *ngFor="let course of searchedCourses">
          <td> {{course.code}} </td>
          <td> {{course.coursename}} </td>
          <td> {{course.progression}} </td>
