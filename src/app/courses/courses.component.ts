@@ -16,7 +16,8 @@ export class CoursesComponent {
   courses: Course[] = [];
   searchedCourses: Course[] = [];
   searchCourse: string = "";
-
+  ascending: boolean = true;
+  sortIcon: string = "assets/sortIcon.svg"
   constructor(private courseService: CourseService){}
 
   ngOnInit(){
@@ -32,4 +33,31 @@ export class CoursesComponent {
     course.coursename.toLowerCase().includes(this.searchCourse.toLowerCase())
     );
   }
+  //Sorteringsmetoder
+  sortByName():void{
+    if(this.ascending === true){
+      this.searchedCourses.sort((a, b)=> (a.coursename > b.coursename)? 1 : -1);
+    }else{
+      this.searchedCourses.sort((a, b)=> (a.coursename < b.coursename)? 1 : -1);
+    }
+      this.ascending = !this.ascending;
+  }
+
+  sortByCode():void{
+    if(this.ascending === true){
+      this.searchedCourses.sort((a, b)=> (a.code > b.code)? 1 : -1);
+    }else{
+      this.searchedCourses.sort((a, b)=> (a.code < b.code)? 1 : -1);
+    }
+      this.ascending = !this.ascending;
+  }
+
+  sortByProgress():void{
+    if(this.ascending === true){
+      this.searchedCourses.sort((a, b)=> (a.progression > b.progression) ? 1 : -1);
+    }else{
+      this.searchedCourses.sort((a, b)=> (a.progression < b.progression) ? 1 : -1);
+    }
+      this.ascending = !this.ascending;
+    }
 }
